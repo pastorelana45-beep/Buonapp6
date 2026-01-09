@@ -49,6 +49,3 @@ export function detectPitch(
 
   return frequency;
 }
-
-// Forza il riconoscimento del modulo
-export default {};
