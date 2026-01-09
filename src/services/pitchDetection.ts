@@ -15,14 +15,13 @@ export function calculateRMS(buffer: Float32Array): number {
   return Math.sqrt(sum / buffer.length);
 }
 
-// Nota: Aggiunto un valore di default per settings per evitare l'errore in App.tsx riga 414
 export function detectPitch(
   buffer: Float32Array, 
   sampleRate: number, 
-  settings: EngineSettings = { gateThreshold: 0.02, isQuantized: true } as EngineSettings
+  settings: EngineSettings
 ): number | null {
   const rms = calculateRMS(buffer);
-  if (rms < settings.gateThreshold) return null;
+  if (rms < settings.gateThreshold) return null; 
 
   const threshold = 0.15;
   const halfSize = Math.floor(buffer.length / 2);
@@ -50,3 +49,6 @@ export function detectPitch(
 
   return frequency;
 }
+
+// Forza il riconoscimento del modulo
+export default {};
