@@ -1,8 +1,15 @@
 export enum Category {
-  PIANO = 'PIANO', KEYS = 'KEYS', STRINGS = 'STRINGS', 
-  BRASS = 'BRASS', REED = 'REED', ORGAN = 'ORGAN', 
-  GUITAR = 'GUITAR', BASS = 'BASS', SYNTH = 'SYNTH', 
-  PERC = 'PERC', ETHNIC = 'ETHNIC'
+  PIANO = 'PIANO',
+  KEYS = 'KEYS',
+  STRINGS = 'STRINGS',
+  BRASS = 'BRASS',
+  REED = 'REED',
+  ORGAN = 'ORGAN',
+  GUITAR = 'GUITAR',
+  BASS = 'BASS',
+  SYNTH = 'SYNTH',
+  PERC = 'PERC',
+  ETHNIC = 'ETHNIC'
 }
 
 export type ScaleType = 'CHR' | 'MAJ' | 'MIN' | 'PEN';
