@@ -1,14 +1,17 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
-const rootElement = document.getElementById('root');
+// Selezioniamo l'elemento con un cast di tipo per TypeScript
+const rootElement = document.getElementById('root') as HTMLElement;
+
 if (!rootElement) {
-  throw new Error("Could not find root element to mount to");
+  // Questo aiuta il build a non fallire per incertezza sull'elemento DOM
+  throw new Error("Failed to find the root element. Check index.html");
 }
 
 const root = ReactDOM.createRoot(rootElement);
+
 root.render(
   <React.StrictMode>
     <App />
