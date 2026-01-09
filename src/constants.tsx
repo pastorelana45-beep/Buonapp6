@@ -6,12 +6,12 @@ export const DEFAULT_SETTINGS: EngineSettings = {
   sustainDecay: 1.5,
   isQuantized: true,
   noPitchBend: true,
-  currentScale: 'CHR'
+  currentScale: 'CHR',
+  isVelocitySensitive: true // Ora riconosciuto grazie al nuovo types.ts
 };
 
 export const INSTRUMENTS = [
   { id: 'concert-grand', name: 'CONCERT GRAND', category: Category.PIANO },
   { id: 'upright-piano', name: 'UPRIGHT PIANO', category: Category.PIANO },
-  { id: 'mellow-piano', name: 'MELLOW PIANO', category: Category.PIANO },
-  { id: 'saloon-piano', name: 'SALOON PIANO', category: Category.PIANO }
+  { id: 'solo-violin', name: 'SOLO VIOLIN', category: Category.STRINGS }
 ];
