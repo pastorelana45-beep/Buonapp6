@@ -5,7 +5,6 @@ export enum Category {
   PERC = 'PERC', ETHNIC = 'ETHNIC'
 }
 
-// Aggiungiamo quello che manca per App.tsx
 export type ScaleType = 'CHR' | 'MAJ' | 'MIN' | 'PEN';
 export type WorkstationMode = 'PERFORMANCE' | 'STUDIO' | 'VAULT';
 
@@ -29,7 +28,13 @@ export interface EngineSettings {
   isQuantized: boolean;         
   noPitchBend: boolean;         
   currentScale: ScaleType;
-  isVelocitySensitive: boolean; // Aggiunto per correggere constants.tsx
+  isVelocitySensitive: boolean;
+}
+
+export interface Instrument {
+  id: string;
+  name: string;
+  category: Category;
 }
 
 export interface PadState {
