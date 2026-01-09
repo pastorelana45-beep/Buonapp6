@@ -1,4 +1,4 @@
-import { Category, EngineSettings } from './types';
+import { Category, EngineSettings, Instrument } from './types';
 
 export const DEFAULT_SETTINGS: EngineSettings = {
   transientSensitivity: 0.5,
@@ -7,10 +7,10 @@ export const DEFAULT_SETTINGS: EngineSettings = {
   isQuantized: true,
   noPitchBend: true,
   currentScale: 'CHR',
-  isVelocitySensitive: true // Ora riconosciuto grazie al nuovo types.ts
+  isVelocitySensitive: true
 };
 
-export const INSTRUMENTS = [
+export const INSTRUMENTS: Instrument[] = [
   { id: 'concert-grand', name: 'CONCERT GRAND', category: Category.PIANO },
   { id: 'upright-piano', name: 'UPRIGHT PIANO', category: Category.PIANO },
   { id: 'solo-violin', name: 'SOLO VIOLIN', category: Category.STRINGS }
