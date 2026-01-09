@@ -1,5 +1,15 @@
 import { EngineSettings } from '../types';
 
+// Utility richieste da App.tsx
+export const frequencyToMidi = (f: number): number => {
+  return Math.round(69 + 12 * Math.log2(f / 440));
+};
+
+export const midiToNoteName = (midi: number): string => {
+  const notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+  return notes[midi % 12] + (Math.floor(midi / 12) - 1);
+};
+
 export function calculateRMS(buffer: Float32Array): number {
   let sum = 0;
   for (let i = 0; i < buffer.length; i++) sum += buffer[i] * buffer[i];
@@ -30,7 +40,7 @@ export function detectPitch(buffer: Float32Array, sampleRate: number, settings: 
   let frequency = sampleRate / tau;
 
   if (settings.isQuantized) {
-    const midi = Math.round(69 + 12 * Math.log2(frequency / 440));
+    const midi = frequencyToMidi(frequency);
     return 440 * Math.pow(2, (midi - 69) / 12);
   }
 
