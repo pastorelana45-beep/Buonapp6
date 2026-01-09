@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.neon-text {
+  color: #bc13fe;
+  text-shadow: 0 0 10px #bc13fe, 0 0 20px #bc13fe;
+}
