@@ -13,5 +13,6 @@ export const DEFAULT_SETTINGS: EngineSettings = {
 export const INSTRUMENTS: Instrument[] = [
   { id: 'concert-grand', name: 'CONCERT GRAND', category: Category.PIANO },
   { id: 'upright-piano', name: 'UPRIGHT PIANO', category: Category.PIANO },
+  { id: 'mellow-piano', name: 'MELLOW PIANO', category: Category.PIANO },
   { id: 'solo-violin', name: 'SOLO VIOLIN', category: Category.STRINGS }
 ];
