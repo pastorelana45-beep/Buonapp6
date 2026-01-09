@@ -1,44 +1,54 @@
-import React, { useState, useEffect } from 'react';
-import { WorkstationMode, PadState } from './types';
-// Importiamo il componente Pad se lo hai già creato, altrimenti lo commentiamo
-// import EffectsPad from './components/effectsPad';
+import React, { useState } from 'react';
+import { WorkstationMode } from './types';
 
 const App: React.FC = () => {
-  const [mode, setMode] = useState<WorkstationMode>('PERFORMANCE');
-  const [isRecording, setIsRecording] = useState(false);
-  const [note, setNote] = useState('---');
-
-  // Stile Neon dinamico
-  const neonShadow = "0 0 15px #bc13fe, 0 0 30px #bc13fe";
+  const [mode] = useState<WorkstationMode>('PERFORMANCE');
+  const [note] = useState('---');
 
   return (
-    <div className="min-h-screen bg-black text-[#bc13fe] flex flex-col items-center justify-center p-4 font-sans">
-      {/* Header */}
-      <header className="absolute top-10 text-center">
-        <h1 className="text-4xl font-black tracking-tighter italic" style={{ textShadow: neonShadow }}>
-          VOCAL SYNTH PRO
-        </h1>
-        <div className="flex gap-4 mt-4 justify-center">
-          {(['PERFORMANCE', 'STUDIO', 'VAULT'] as WorkstationMode[]).map((m) => (
-            <button
-              key={m}
-              onClick={() => setMode(m)}
-              className={`px-3 py-1 text-xs border ${mode === m ? 'bg-[#bc13fe] text-black' : 'border-[#bc13fe]'} rounded-full transition-all`}
-            >
-              {m}
-            </button>
-          ))}
-        </div>
-      </header>
+    <div style={{ 
+      background: 'radial-gradient(circle, #1a0033 0%, #000000 100%)', 
+      color: '#bc13fe', 
+      height: '100vh', 
+      display: 'flex', 
+      flexDirection: 'column', 
+      alignItems: 'center', 
+      justifyContent: 'center', 
+      fontFamily: 'sans-serif' 
+    }}>
+      <h1 style={{ fontSize: '2rem', textShadow: '0 0 15px #bc13fe', marginBottom: '20px' }}>
+        VOCAL SYNTH PRO
+      </h1>
+      
+      <div style={{ 
+        border: '3px solid #bc13fe', 
+        padding: '40px', 
+        borderRadius: '30px', 
+        textAlign: 'center',
+        background: 'rgba(188, 19, 254, 0.05)',
+        boxShadow: '0 0 30px rgba(188, 19, 254, 0.2)'
+      }}>
+        <p style={{ letterSpacing: '2px', color: '#fff' }}>STATUS: {mode}</p>
+        <div style={{ fontSize: '5rem', fontWeight: 'bold', margin: '15px 0' }}>{note}</div>
+        <p style={{ color: '#888' }}>ENGINE READY</p>
+      </div>
 
-      {/* Main Display */}
-      <div className="flex flex-col items-center gap-8">
-        <div className="w-64 h-64 rounded-full border-4 border-[#bc13fe] flex items-center justify-center flex-col relative" style={{ boxShadow: `inset ${neonShadow}, ${neonShadow}` }}>
-          <span className="text-xs uppercase tracking-widest opacity-70">Detecting</span>
-          <span className="text-7xl font-bold mt-2">{note}</span>
-        </div>
+      <button 
+        style={{ 
+          marginTop: '30px', 
+          background: '#bc13fe', 
+          color: 'white', 
+          border: 'none', 
+          padding: '15px 40px', 
+          borderRadius: '50px', 
+          cursor: 'pointer', 
+          fontWeight: 'bold'
+        }}
+      >
+        START ENGINE
+      </button>
+    </div>
+  );
+};
 
-        {/* Controls */}
-        <div className="flex gap-10">
-          <div className="text-center">
-            <p
+export default App;
