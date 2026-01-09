@@ -1,6 +1,5 @@
 import { EngineSettings } from '../types';
 
-// Utility richieste da App.tsx
 export const frequencyToMidi = (f: number): number => {
   return Math.round(69 + 12 * Math.log2(f / 440));
 };
@@ -16,6 +15,7 @@ export function calculateRMS(buffer: Float32Array): number {
   return Math.sqrt(sum / buffer.length);
 }
 
+// Nota: manteniamo i 3 argomenti richiesti
 export function detectPitch(buffer: Float32Array, sampleRate: number, settings: EngineSettings): number | null {
   const rms = calculateRMS(buffer);
   if (rms < settings.gateThreshold) return null; 
