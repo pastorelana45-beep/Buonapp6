@@ -1,10 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// Usiamo il percorso assoluto per forzare il compilatore
-import App from './App.tsx'; 
+import App from './App'; // Rimosso .tsx - TypeScript lo troverà automaticamente
 
 const rootElement = document.getElementById('root');
-if (rootElement) {
-  const root = ReactDOM.createRoot(rootElement);
-  root.render(<App />);
+
+if (!rootElement) {
+  throw new Error("Target container 'root' not found in index.html");
 }
+
+const root = ReactDOM.createRoot(rootElement as HTMLElement);
+
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
